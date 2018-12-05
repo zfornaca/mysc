@@ -4,7 +4,18 @@ import './App.css';
 
 class Card extends Component {
   render() {
-    return <div className="CardContainer">This is a card.</div>;
+    console.log(this.props.name);
+    const name = this.props.name;
+    const url = this.props.url;
+    const img = this.props.img;
+    return (
+      <div className="Card">
+        <img src={img} alt="" />
+        <a target="_blank" href={url}>
+          {name}
+        </a>
+      </div>
+    );
   }
 }
 

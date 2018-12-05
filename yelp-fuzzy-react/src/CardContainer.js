@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import axios from 'axios';
-// import TOKEN from './token.js';
-
-// const config = {
-//   headers: { Authorization: 'Bearer ' + TOKEN },
-//   params: {
-//     term: 'bulgoki',
-//     location: 'Oakland'
-//   }
-// };
 
 class CardContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.data = {};
-  }
+  state = { businesses: [] };
 
-  componentWillMount() {
-    console.log('hello my buddy my pal');
-    axios.get('http://localhost:3001').then(res => console.log(res.data));
+  componentDidMount() {
+    const terms = ['bulgoki', 'boolgogi'];
+    const location = 'Oakland';
+    axios
+      .get(
+        `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
+      )
+      .then(res => {
+        const businesses = res.data.businesses;
+        this.setState({ businesses });
+        console.log('data loaded');
+      });
   }
 
   render() {
+    let cardArray = [];
+    this.state.businesses.forEach(biz => {
+      cardArray.push(
+        <Card name={biz.name} url={biz.url} key={biz.id} img={biz.image_url} />
+      );
+    });
+
     return (
       <div className="CardContainer">
-        <Card />
+        {cardArray}
+        Placeholder
       </div>
     );
   }
