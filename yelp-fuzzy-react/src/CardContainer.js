@@ -6,14 +6,15 @@ class CardContainer extends Component {
   state = { businesses: [] };
 
   componentDidMount() {
-    const terms = ['bulgoki', 'boolgogi'];
+    const terms = ['bulgoki', 'boolgogi', 'galbee'];
     const location = 'Oakland';
     axios
       .get(
         `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
       )
       .then(res => {
-        const businesses = res.data.businesses;
+        // const businesses = res.data.businesses;
+        const businesses = Object.values(res.data);
         this.setState({ businesses });
         console.log('data loaded');
       });
