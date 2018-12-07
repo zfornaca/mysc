@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 
 class Card extends Component {
   render() {
@@ -7,13 +6,14 @@ class Card extends Component {
     const name = this.props.name;
     const url = this.props.url;
     const img = this.props.img;
+    const idx = this.props.idx;
     return (
-      <div className="Card">
-        <img src={img} alt="" />
-        <a target="_blank" href={url}>
-          {name}
-        </a>
-      </div>
+      <a target="_blank" href={url}>
+        <div className="Card">
+          <img src={img} alt="" />
+          {idx} - {name}
+        </div>
+      </a>
     );
   }
 }

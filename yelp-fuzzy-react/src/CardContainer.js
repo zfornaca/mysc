@@ -6,14 +6,13 @@ class CardContainer extends Component {
   state = { businesses: [] };
 
   componentDidMount() {
-    const terms = ['bulgoki', 'boolgogi', 'galbee'];
+    const terms = ['bulgoki', 'bulgogi'];
     const location = 'Oakland';
     axios
       .get(
         `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
       )
       .then(res => {
-        // const businesses = res.data.businesses;
         const businesses = Object.values(res.data);
         this.setState({ businesses });
         console.log('data loaded');
@@ -22,34 +21,20 @@ class CardContainer extends Component {
 
   render() {
     let cardArray = [];
-    this.state.businesses.forEach(biz => {
+    this.state.businesses.forEach((biz, idx) => {
       cardArray.push(
-        <Card name={biz.name} url={biz.url} key={biz.id} img={biz.image_url} />
+        <Card
+          name={biz.name}
+          url={biz.url}
+          key={biz.id}
+          img={biz.image_url}
+          idx={idx + 1}
+        />
       );
     });
 
-    return (
-      <div className="CardContainer">
-        {cardArray}
-        Placeholder
-      </div>
-    );
+    return <div className="CardContainer">{cardArray}</div>;
   }
 }
 
 export default CardContainer;
-
-/*
-https://api.yelp.com/v3/businesses/search?term=bulgoki&location=Oakland
-Auth.
-bearer
-Bearer TESTING
-
-axios.get('https://api.yelp.com/v3/businesses/search?term=bulgoki&location=Oakland
-', {
-  headers: {'Authorization': "bearer " + TOKEN}
-})
-
-
-
-*/
