@@ -4,22 +4,24 @@ import SearchBar from './SearchBar';
 import './App.css';
 
 class App extends Component {
-  state = { terms: [] };
+  state = { terms: [], location: '' };
 
-  triggerSearch = passedTerms => {
-    this.setState({ terms: passedTerms });
-    console.log('a search');
+  triggerSearch = (passedTerms, passedLocation) => {
+    this.setState({ terms: passedTerms, location: passedLocation });
+    console.log('a search', passedTerms, passedLocation);
   };
 
   render() {
-    const terms = this.state.terms;
+    const { terms, location } = this.state;
     return (
       <div className="App">
         <SearchBar
-          triggerSearch={passedTerms => this.triggerSearch(passedTerms)}
+          triggerSearch={(passedTerms, passedLocation) =>
+            this.triggerSearch(passedTerms, passedLocation)
+          }
         />
         <hr />
-        <CardContainer terms={terms} />
+        <CardContainer terms={terms} location={location} />
       </div>
     );
   }

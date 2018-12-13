@@ -6,8 +6,16 @@ class CardContainer extends Component {
   state = { businesses: [] };
 
   componentDidMount() {
-    const terms = ['bulgoki', 'bulgogi'];
-    const location = 'Oakland';
+    this.getDataFromBackend(this.props.terms, this.props.location);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.terms.join('') !== nextProps.terms.join('')) {
+      this.getDataFromBackend(nextProps.terms, nextProps.location);
+    }
+  }
+
+  getDataFromBackend(terms, location) {
     axios
       .get(
         `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
@@ -20,6 +28,7 @@ class CardContainer extends Component {
   }
 
   render() {
+    console.log('rendering CardContainer');
     let cardArray = [];
     this.state.businesses.forEach((biz, idx) => {
       cardArray.push(

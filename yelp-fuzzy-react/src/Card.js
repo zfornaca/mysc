@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Card extends Component {
   render() {
-    console.log(this.props.name);
     const name = this.props.name;
     const url = this.props.url;
     const img = this.props.img;
