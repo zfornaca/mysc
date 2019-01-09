@@ -5,9 +5,9 @@ import axios from 'axios';
 class CardContainer extends Component {
   state = { businesses: [] };
 
-  componentDidMount() {
-    this.getDataFromBackend(this.props.terms, this.props.location);
-  }
+  // componentDidMount() {
+  //   this.getDataFromBackend(this.props.terms, this.props.location);
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.terms.join('') !== nextProps.terms.join('')) {

@@ -28,6 +28,10 @@ class SearchBar extends Component {
   handleSubmitSearch = evt => {
     const passedTerms = this.state.terms;
     const passedLocation = this.state.location;
+    if (passedTerms.length === 0 || passedLocation === '') {
+      console.log('invalid search');
+      return;
+    }
     this.props.triggerSearch(passedTerms, passedLocation);
     this.setState({ terms: [], termInput: '', locInput: '', location: '' });
   };
