@@ -5,7 +5,13 @@ import uuidv1 from 'uuid/v1';
 // add: locInput
 
 class SearchBar extends Component {
-  state = { terms: [], termInput: '', locInput: '', location: '' };
+  state = {
+    terms: [],
+    termInput: '',
+    locInput: '',
+    location: '',
+    invalidSearch: false
+  };
 
   handleChange = evt => {
     this.setState({ [evt.target.name]: evt.target.value });
@@ -30,13 +36,21 @@ class SearchBar extends Component {
     const passedLocation = this.state.location;
     if (passedTerms.length === 0 || passedLocation === '') {
       console.log('invalid search');
+      this.setState({ invalidSearch: true });
       return;
     }
     this.props.triggerSearch(passedTerms, passedLocation);
-    this.setState({ terms: [], termInput: '', locInput: '', location: '' });
+    this.setState({
+      terms: [],
+      termInput: '',
+      locInput: '',
+      location: '',
+      invalidSearch: false
+    });
   };
 
   render() {
+    const invalidMsg = 'Please provide a location and at least one search term';
     const terms = this.state.terms.map(term => {
       return <span key={uuidv1()}>{term} </span>;
     });
@@ -64,7 +78,8 @@ class SearchBar extends Component {
           />
           <input type="submit" value="Add term" />
         </form>
-        {terms} | {location}
+        Terms: {terms} | Location: {location} |{' '}
+        {this.state.invalidSearch ? invalidMsg : ''}
         <button onClick={this.handleSubmitSearch}>Submit search</button>
       </div>
     );
