@@ -26,6 +26,14 @@ class SearchBar extends Component {
     evt.target.reset();
   };
 
+  handleRemoveTerm = deletedTerm => {
+    console.log(deletedTerm);
+    const updatedTerms = this.state.terms.filter(term => {
+      return term !== deletedTerm;
+    });
+    this.setState({ terms: updatedTerms });
+  };
+
   handleSetLocation = evt => {
     evt.preventDefault();
     this.setState({ location: this.state.locInput, locInput: '' });
@@ -52,35 +60,55 @@ class SearchBar extends Component {
   render() {
     const invalidMsg = 'Please provide a location and at least one search term';
     const terms = this.state.terms.map(term => {
-      return <span key={uuidv1()}>{term} </span>;
+      return (
+        <div
+          className="providedTerm"
+          onClick={() => this.handleRemoveTerm(term)}
+          key={uuidv1()}
+        >
+          {term} <span className="tinyX">X</span>
+        </div>
+      );
     });
     const location = this.state.location;
     return (
       <div className="searchBar">
-        (Search bar)
-        <form onSubmit={this.handleSetLocation}>
-          <label>Location to search</label>
-          <input
-            type="text"
-            name="locInput"
-            value={this.state.locInput} //nuh uh
-            onChange={this.handleChange} //nuh uh
-          />
-          <input type="submit" value="Add term" />
-        </form>
-        <form onSubmit={this.handleAddTerm}>
-          <label>Enter search term</label>
-          <input
-            type="text"
-            name="termInput"
-            value={this.state.termInput}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Add term" />
-        </form>
-        Terms: {terms} | Location: {location} |{' '}
-        {this.state.invalidSearch ? invalidMsg : ''}
-        <button onClick={this.handleSubmitSearch}>Submit search</button>
+        <div className="searchConfig">
+          <form onSubmit={this.handleSetLocation}>
+            <label className="searchLabel">Set search location:</label>
+            <div className="inputChiclet">
+              <input
+                type="text"
+                name="locInput"
+                value={this.state.locInput}
+                onChange={this.handleChange}
+                className="textInput"
+              />
+              <input type="submit" value="SET" className="submitInput" />
+            </div>
+            {location ? <div className="providedLoc"> {location} </div> : ''}
+          </form>
+          <form onSubmit={this.handleAddTerm}>
+            <label className="searchLabel">Add search term:</label>
+            <div className="inputChiclet">
+              <input
+                type="text"
+                name="termInput"
+                value={this.state.termInput}
+                onChange={this.handleChange}
+                className="textInput"
+              />
+              <input type="submit" value="ADD" className="submitInput" />
+            </div>
+            <div className="termsHolder">{terms.length ? terms : ''}</div>
+          </form>
+          {/* {this.state.invalidSearch ? invalidMsg : ''} */}
+        </div>
+        <div className="submitBtnHolder">
+          <button onClick={this.handleSubmitSearch} className="submitBtn">
+            Search
+          </button>
+        </div>
       </div>
     );
   }

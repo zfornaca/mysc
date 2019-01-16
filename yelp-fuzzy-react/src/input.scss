@@ -1,0 +1,217 @@
+// "Maximum red" (color from Yelp docs), "Steel blue", "Jet", "Eggshell"
+$yelp-red: #d32323;
+$color-2: #2e86ab;
+$color-3: #343434;
+$color-4: #eef4d4;
+
+$primary-font: 'Rubik', sans-serif;
+
+body {
+  font-family: $primary-font;
+  color: $color-3;
+}
+
+.header {
+  display: flex;
+  margin: 5px;
+  align-items: baseline;
+
+  .acronym {
+    color: $yelp-red;
+    font-size: xx-large;
+    font-weight: 1000;
+  }
+
+  .fullName {
+    font-size: large;
+    padding-left: 1em;
+    // padding: 1em;
+  }
+}
+
+.searchBar {
+  border-radius: 5px;
+  background-color: $yelp-red;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .searchConfig {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0 1em 0.5em 1em;
+      min-height: 80px;
+
+      .searchLabel {
+        color: white;
+        padding-left: 0.5em;
+      }
+
+      .inputChiclet {
+        display: flex;
+        flex-direction: row;
+        height: 2em;
+        border-radius: 0.5em;
+        box-sizing: border-box;
+
+        .textInput {
+          border-radius: 0.5em 0 0 0.5em;
+          border: 1px $color-3 solid;
+          height: 100%;
+          width: 15em;
+          padding: 0.1em 0.5em;
+          font-size: medium;
+          box-sizing: border-box;
+        }
+
+        .submitInput {
+          border-radius: 0 0.5em 0.5em 0;
+          background-color: $color-4;
+          border: 1px $color-3 solid;
+          padding: 0.1em 0.5em;
+          margin-left: -3px;
+          height: 100%;
+          box-sizing: border-box;
+          font-weight: 700;
+        }
+
+        .submitInput:hover {
+          cursor: pointer;
+        }
+      }
+
+      .termsHolder {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .providedLoc,
+      .providedTerm {
+        background-color: $color-4;
+        padding: 0.5em;
+        font-size: x-small;
+        border-radius: 1em;
+        margin-top: 0.5em;
+        display: inline;
+        margin-left: 0.5em;
+      }
+    }
+  }
+  .submitBtnHolder {
+    display: flex;
+    padding: 0 1em;
+
+    .submitBtn {
+      // min-width: 100px;
+      height: 1.5em;
+      // overflow: hidden;
+      border: 1px solid $color-3;
+      border-radius: 1em;
+      background-color: $color-2;
+      font-size: x-large;
+      flex: 0 0 120px;
+    }
+
+    .submitBtn:hover {
+      cursor: pointer;
+      background-color: #eef4d4;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cardList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .Card {
+      display: flex;
+      margin: 10px 5px 0 5px;
+      border: $color-3 solid 2px;
+      border-radius: 0.5em;
+      width: 300px;
+
+      .bizImgBox {
+        overflow: hidden;
+        width: 100px;
+        height: 101px;
+        position: relative;
+        border-radius: 0.35em 0 0 0.35em;
+        background-color: $color-3;
+
+        .bizImg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+
+        .bizNumberHolder {
+          position: absolute;
+          left: 0.5em;
+          top: 0.5em;
+          border-radius: 50%;
+          width: 2em;
+          height: 2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $color-2;
+
+          .bizNumber {
+            color: white;
+            font-size: x-large;
+          }
+        }
+      }
+
+      .bizDetailsBox {
+        width: calc(100% - 110px);
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .bizName {
+          font-size: medium;
+          color: $color-2;
+          width: calc(100% - 10px);
+
+          // white-space: nowrap;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+        }
+        .bizDetailsImages {
+          .stars {
+            width: 120px;
+            height: auto;
+          }
+          .yelpLogo {
+            // 48px is minimum width
+            width: 48px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
