@@ -38,14 +38,28 @@ class CardContainer extends Component {
           img={biz.image_url}
           idx={idx + 1}
           rating={biz.rating}
+          location={biz.location.display_address[0]}
         />
       );
     });
 
     return (
       <div className="CardContainer">
-        {/* <div>Location: {this.props.location}</div> */}
-        {/* <div>Terms: {this.props.terms.join(', ')}</div> */}
+        {!this.state.loading && this.state.searchInitiated ? (
+          <div className="searchQuery">
+            <div>
+              <span className="ticTac">{this.props.location}</span> |
+              {/* </div>
+            <div> */}{' '}
+              {this.props.terms.map(term => (
+                <span className="ticTac">{term}</span>
+              ))}
+            </div>
+          </div>
+        ) : (
+          ''
+        )}
+
         <div className="cardList">
           {this.state.loading
             ? 'loading'

@@ -7,6 +7,7 @@ class Card extends Component {
     const img = this.props.img;
     const idx = this.props.idx;
     const rating = this.props.rating;
+    const location = this.props.location;
 
     return (
       <a target="_blank" href={url}>
@@ -19,6 +20,7 @@ class Card extends Component {
           </div>
           <div className="bizDetailsBox">
             <div className="bizName">{name}</div>
+            <div className="bizAddress">{location}</div>
             <div className="bizDetailsImages">
               <img src={`./${rating}stars.png`} alt="" className="stars" />
               <img src="./yelp_logo.png" alt="" className="yelpLogo" />

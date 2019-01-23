@@ -52,7 +52,7 @@ body {
           box-sizing: border-box; }
         .searchBar .searchConfig form .inputChiclet .submitInput {
           border-radius: 0 0.5em 0.5em 0;
-          background-color: #eef4d4;
+          background-color: #2e86ab;
           border: 1px #343434 solid;
           padding: 0.1em 0.5em;
           margin-left: -3px;
@@ -60,19 +60,16 @@ body {
           box-sizing: border-box;
           font-weight: 700; }
         .searchBar .searchConfig form .inputChiclet .submitInput:hover {
-          cursor: pointer; }
+          cursor: pointer;
+          background-color: #54acd1;
+          color: #eef4d4; }
       .searchBar .searchConfig form .termsHolder {
         display: flex;
         flex-direction: row; }
       .searchBar .searchConfig form .providedLoc,
       .searchBar .searchConfig form .providedTerm {
         background-color: #eef4d4;
-        padding: 0.5em;
-        font-size: x-small;
-        border-radius: 1em;
-        margin-top: 0.5em;
-        display: inline;
-        margin-left: 0.5em; }
+        color: black; }
   .searchBar .submitBtnHolder {
     display: flex;
     padding: 0 1em; }
@@ -85,7 +82,8 @@ body {
       flex: 0 0 120px; }
     .searchBar .submitBtnHolder .submitBtn:hover {
       cursor: pointer;
-      background-color: #eef4d4; }
+      background-color: #54acd1;
+      color: #eef4d4; }
 
 a {
   text-decoration: none; }
@@ -105,6 +103,8 @@ a {
       border: #343434 solid 2px;
       border-radius: 0.5em;
       width: 300px; }
+      .CardContainer .cardList .Card:hover {
+        border-color: #2e86ab; }
       .CardContainer .cardList .Card .bizImgBox {
         overflow: hidden;
         width: 100px;
@@ -141,11 +141,24 @@ a {
           font-size: medium;
           color: #2e86ab;
           width: calc(100% - 10px); }
+        .CardContainer .cardList .Card .bizDetailsBox .bizAddress {
+          font-size: x-small;
+          color: #343434; }
         .CardContainer .cardList .Card .bizDetailsBox .bizDetailsImages .stars {
           width: 120px;
           height: auto; }
         .CardContainer .cardList .Card .bizDetailsBox .bizDetailsImages .yelpLogo {
           width: 48px;
           height: auto; }
+
+.ticTac {
+  background-color: #2e86ab;
+  color: white;
+  padding: 0.5em;
+  font-size: x-small;
+  border-radius: 1em;
+  margin-top: 0.5em;
+  display: inline;
+  margin-left: 0.5em; }
 
 /*# sourceMappingURL=output.css.map */

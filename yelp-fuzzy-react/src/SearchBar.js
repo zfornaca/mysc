@@ -58,11 +58,10 @@ class SearchBar extends Component {
   };
 
   render() {
-    const invalidMsg = 'Please provide a location and at least one search term';
     const terms = this.state.terms.map(term => {
       return (
         <div
-          className="providedTerm"
+          className="providedTerm  ticTac"
           onClick={() => this.handleRemoveTerm(term)}
           key={uuidv1()}
         >
@@ -86,7 +85,11 @@ class SearchBar extends Component {
               />
               <input type="submit" value="SET" className="submitInput" />
             </div>
-            {location ? <div className="providedLoc"> {location} </div> : ''}
+            {location ? (
+              <div className="providedLoc ticTac"> {location} </div>
+            ) : (
+              ''
+            )}
           </form>
           <form onSubmit={this.handleAddTerm}>
             <label className="searchLabel">Add search term:</label>

@@ -75,7 +75,7 @@ body {
 
         .submitInput {
           border-radius: 0 0.5em 0.5em 0;
-          background-color: $color-4;
+          background-color: $color-2;
           border: 1px $color-3 solid;
           padding: 0.1em 0.5em;
           margin-left: -3px;
@@ -86,6 +86,8 @@ body {
 
         .submitInput:hover {
           cursor: pointer;
+          background-color: lighten($color-2, 15%);
+          color: $color-4;
         }
       }
 
@@ -97,12 +99,7 @@ body {
       .providedLoc,
       .providedTerm {
         background-color: $color-4;
-        padding: 0.5em;
-        font-size: x-small;
-        border-radius: 1em;
-        margin-top: 0.5em;
-        display: inline;
-        margin-left: 0.5em;
+        color: black;
       }
     }
   }
@@ -123,7 +120,8 @@ body {
 
     .submitBtn:hover {
       cursor: pointer;
-      background-color: #eef4d4;
+      background-color: lighten($color-2, 15%);
+      color: $color-4;
     }
   }
 }
@@ -143,12 +141,22 @@ a {
     justify-content: center;
     flex-wrap: wrap;
 
+    // a:hover {
+    //   .bizNumberHolder {
+    //     background-color: pink;
+    //   }
+    // }
+
     .Card {
       display: flex;
       margin: 10px 5px 0 5px;
       border: $color-3 solid 2px;
       border-radius: 0.5em;
       width: 300px;
+
+      &:hover {
+        border-color: $color-2;
+      }
 
       .bizImgBox {
         overflow: hidden;
@@ -200,6 +208,10 @@ a {
           // overflow: hidden;
           // text-overflow: ellipsis;
         }
+        .bizAddress {
+          font-size: x-small;
+          color: $color-3;
+        }
         .bizDetailsImages {
           .stars {
             width: 120px;
@@ -214,4 +226,15 @@ a {
       }
     }
   }
+}
+
+.ticTac {
+  background-color: $color-2;
+  color: white;
+  padding: 0.5em;
+  font-size: x-small;
+  border-radius: 1em;
+  margin-top: 0.5em;
+  display: inline;
+  margin-left: 0.5em;
 }
