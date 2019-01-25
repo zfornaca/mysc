@@ -3,6 +3,10 @@ $yelp-red: #d32323;
 $color-2: #2e86ab;
 $color-3: #343434;
 $color-4: #eef4d4;
+$circ-1: rgb(255, 189, 67);
+$circ-2: rgb(60, 238, 60);
+$circ-3: rgb(109, 109, 255);
+$circ-4: rgb(255, 128, 255);
 
 $primary-font: 'Rubik', sans-serif;
 
@@ -67,7 +71,7 @@ body {
           border-radius: 0.5em 0 0 0.5em;
           border: 1px $color-3 solid;
           height: 100%;
-          width: 15em;
+          width: 13em;
           padding: 0.1em 0.5em;
           font-size: medium;
           box-sizing: border-box;
@@ -131,6 +135,7 @@ a {
 }
 
 .CardContainer {
+  margin-top: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,8 +198,8 @@ a {
       }
 
       .bizDetailsBox {
-        width: calc(100% - 110px);
-        padding: 5px;
+        width: calc(100% - 131px);
+        padding: 5px 0 5px 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -237,4 +242,49 @@ a {
   margin-top: 0.5em;
   display: inline;
   margin-left: 0.5em;
+}
+
+.circleColumn {
+  width: 26px;
+}
+
+.circle {
+  border-radius: 50%;
+  border: $color-3 solid 2px;
+  width: 12px;
+  height: 12px;
+  background-color: lighten($color-3, 50%);
+  margin: 5px;
+
+  &.circ0 {
+    background-color: $circ-1;
+  }
+  &.circ1 {
+    background-color: $circ-2;
+  }
+  &.circ2 {
+    background-color: $circ-3;
+  }
+  &.circ3 {
+    background-color: $circ-4;
+  }
+}
+
+.termChiclet,
+.locChiclet,
+.searchQuery {
+  display: flex;
+  flex-direction: row;
+}
+
+.termChiclet,
+.locChiclet {
+  padding: 3px;
+  border-radius: 10px;
+  border: solid $color-3 1px;
+  align-items: center;
+}
+
+.termChiclet {
+  margin-left: 1em;
 }

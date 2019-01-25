@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuidv4 from 'uuid/v4';
 
 class Card extends Component {
   render() {
@@ -8,6 +9,18 @@ class Card extends Component {
     const idx = this.props.idx;
     const rating = this.props.rating;
     const location = this.props.location;
+    let switchIdx = 0;
+    console.log(this.props.lightSwitches);
+    const lightSwitches = this.props.lightSwitches.map(lSw => {
+      const newSwitch = (
+        <div
+          key={uuidv4()}
+          className={`circle circ${lSw === '1' ? switchIdx : ''}`}
+        />
+      );
+      switchIdx++;
+      return newSwitch;
+    });
 
     return (
       <a target="_blank" href={url}>
@@ -26,6 +39,7 @@ class Card extends Component {
               <img src="./yelp_logo.png" alt="" className="yelpLogo" />
             </div>
           </div>
+          <div className="circleColumn">{lightSwitches}</div>
         </div>
       </a>
     );

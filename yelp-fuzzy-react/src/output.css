@@ -46,7 +46,7 @@ body {
           border-radius: 0.5em 0 0 0.5em;
           border: 1px #343434 solid;
           height: 100%;
-          width: 15em;
+          width: 13em;
           padding: 0.1em 0.5em;
           font-size: medium;
           box-sizing: border-box; }
@@ -89,6 +89,7 @@ a {
   text-decoration: none; }
 
 .CardContainer {
+  margin-top: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -132,8 +133,8 @@ a {
             color: white;
             font-size: x-large; }
       .CardContainer .cardList .Card .bizDetailsBox {
-        width: calc(100% - 110px);
-        padding: 5px;
+        width: calc(100% - 131px);
+        padding: 5px 0 5px 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between; }
@@ -160,5 +161,40 @@ a {
   margin-top: 0.5em;
   display: inline;
   margin-left: 0.5em; }
+
+.circleColumn {
+  width: 26px; }
+
+.circle {
+  border-radius: 50%;
+  border: #343434 solid 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #b4b4b4;
+  margin: 5px; }
+  .circle.circ0 {
+    background-color: #ffbd43; }
+  .circle.circ1 {
+    background-color: #3cee3c; }
+  .circle.circ2 {
+    background-color: #6d6dff; }
+  .circle.circ3 {
+    background-color: #ff80ff; }
+
+.termChiclet,
+.locChiclet,
+.searchQuery {
+  display: flex;
+  flex-direction: row; }
+
+.termChiclet,
+.locChiclet {
+  padding: 3px;
+  border-radius: 10px;
+  border: solid #343434 1px;
+  align-items: center; }
+
+.termChiclet {
+  margin-left: 1em; }
 
 /*# sourceMappingURL=output.css.map */

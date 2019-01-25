@@ -19,10 +19,17 @@ class SearchBar extends Component {
 
   handleAddTerm = evt => {
     evt.preventDefault();
-    this.setState({
-      terms: [...this.state.terms, this.state.termInput],
-      termInput: ''
-    });
+    if (this.state.terms.length > 3) {
+      this.setState({
+        terms: [...this.state.terms.slice(1), this.state.termInput],
+        termInput: ''
+      });
+    } else {
+      this.setState({
+        terms: [...this.state.terms, this.state.termInput],
+        termInput: ''
+      });
+    }
     evt.target.reset();
   };
 

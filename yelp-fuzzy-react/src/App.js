@@ -24,7 +24,6 @@ class App extends Component {
             this.triggerSearch(passedTerms, passedLocation)
           }
         />
-        <hr />
         <CardContainer terms={terms} location={location} />
       </div>
     );

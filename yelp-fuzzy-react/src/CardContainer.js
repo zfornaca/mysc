@@ -30,6 +30,12 @@ class CardContainer extends Component {
     console.log(this.state.businesses);
     let cardArray = [];
     this.state.businesses.forEach((biz, idx) => {
+      let lightSwitches = [];
+      for (let term of this.props.terms) {
+        biz.terms.includes(term)
+          ? lightSwitches.push('1')
+          : lightSwitches.push('0');
+      }
       cardArray.push(
         <Card
           name={biz.name}
@@ -39,7 +45,17 @@ class CardContainer extends Component {
           idx={idx + 1}
           rating={biz.rating}
           location={biz.location.display_address[0]}
+          lightSwitches={lightSwitches}
         />
+      );
+    });
+    let chicletIdx = 0;
+    const termChiclets = this.props.terms.map(term => {
+      return (
+        <div className="termChiclet">
+          <div className={`circle circ${chicletIdx++}`} />
+          <div>{term}</div>
+        </div>
       );
     });
 
@@ -47,14 +63,8 @@ class CardContainer extends Component {
       <div className="CardContainer">
         {!this.state.loading && this.state.searchInitiated ? (
           <div className="searchQuery">
-            <div>
-              <span className="ticTac">{this.props.location}</span> |
-              {/* </div>
-            <div> */}{' '}
-              {this.props.terms.map(term => (
-                <span className="ticTac">{term}</span>
-              ))}
-            </div>
+            <div className="locChiclet">{this.props.location}</div>
+            {termChiclets}
           </div>
         ) : (
           ''
