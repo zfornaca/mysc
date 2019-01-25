@@ -3,6 +3,9 @@ import Card from './Card';
 import axios from 'axios';
 import initialMsg from './text';
 
+const openShiftUrl =
+  'http://app-yelp-express.1d35.starter-us-east-1.openshiftapps.com/';
+
 class CardContainer extends Component {
   state = { businesses: [], searchInitiated: false, loading: false };
 
@@ -13,10 +16,14 @@ class CardContainer extends Component {
   }
 
   getDataFromBackend(terms, location) {
+    console.log(
+      `${openShiftUrl}?terms=${terms.join(',')}&location=${location}`
+    );
     this.setState({ searchInitiated: true, loading: true });
     axios
       .get(
-        `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
+        `${openShiftUrl}?terms=${terms.join(',')}&location=${location}`
+        // `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
       )
       .then(res => {
         const businesses = Object.values(res.data);
