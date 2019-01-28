@@ -4,7 +4,7 @@ import axios from 'axios';
 import initialMsg from './text';
 
 const openShiftUrl =
-  'http://app-yelp-express.1d35.starter-us-east-1.openshiftapps.com/';
+  'https://app-yelp-express.1d35.starter-us-east-1.openshiftapps.com/';
 
 class CardContainer extends Component {
   state = { businesses: [], searchInitiated: false, loading: false };
