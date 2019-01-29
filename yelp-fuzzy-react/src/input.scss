@@ -275,16 +275,15 @@ a {
 .searchQuery {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .termChiclet,
 .locChiclet {
   padding: 3px;
+  margin: 0 0.25em 0.5em 0.25em;
   border-radius: 10px;
   border: solid $color-3 1px;
   align-items: center;
-}
-
-.termChiclet {
-  margin-left: 1em;
 }
