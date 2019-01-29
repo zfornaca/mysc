@@ -19,6 +19,7 @@ class SearchBar extends Component {
 
   handleAddTerm = evt => {
     evt.preventDefault();
+    if (this.state.termInput.length === 0) return;
     if (this.state.terms.length > 3) {
       this.setState({
         terms: [...this.state.terms.slice(1), this.state.termInput],
@@ -43,6 +44,7 @@ class SearchBar extends Component {
 
   handleSetLocation = evt => {
     evt.preventDefault();
+    if (this.state.locInput.length === 0) return;
     this.setState({ location: this.state.locInput, locInput: '' });
   };
 
