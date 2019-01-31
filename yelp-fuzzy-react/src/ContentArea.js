@@ -49,7 +49,7 @@ class ContentArea extends Component {
         ) : this.state.loading ? (
           'loading'
         ) : !this.state.businesses.length ? (
-          'no results'
+          'No results for any of the provided search criteria.'
         ) : (
           <CardContainer
             businesses={this.state.businesses}
