@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import uuidv1 from 'uuid/v1';
 
-// inputValue => termInput
-// add: locInput
-
 class SearchBar extends Component {
   state = {
     terms: [],
@@ -114,7 +111,6 @@ class SearchBar extends Component {
             </div>
             <div className="termsHolder">{terms.length ? terms : ''}</div>
           </form>
-          {/* {this.state.invalidSearch ? invalidMsg : ''} */}
         </div>
         <div className="submitBtnHolder">
           <button onClick={this.handleSubmitSearch} className="submitBtn">

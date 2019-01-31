@@ -3,14 +3,8 @@ import uuidv4 from 'uuid/v4';
 
 class Card extends Component {
   render() {
-    const name = this.props.name;
-    const url = this.props.url;
-    const img = this.props.img;
-    const idx = this.props.idx;
-    const rating = this.props.rating;
-    const location = this.props.location;
+    const { name, url, img, idx, rating, location } = this.props;
     let switchIdx = 0;
-    console.log(this.props.lightSwitches);
     const lightSwitches = this.props.lightSwitches.map(lSw => {
       const newSwitch = (
         <div
@@ -23,7 +17,7 @@ class Card extends Component {
     });
 
     return (
-      <a target="_blank" href={url}>
+      <a target="_blank" rel="noopener noreferrer" href={url}>
         <div className="Card">
           <div className="bizImgBox">
             <img src={img} alt="" className="bizImg" />

@@ -88,37 +88,34 @@ body {
 a {
   text-decoration: none; }
 
-.CardContainer {
-  margin-top: 0.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .CardContainer .cardList {
+.ContentArea {
+  margin-top: 0.5em; }
+  .ContentArea .CardContainer {
+    margin-top: 0.5em;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap; }
-    .CardContainer .cardList .Card {
+    .ContentArea .CardContainer .Card {
       display: flex;
       margin: 10px 5px 0 5px;
       border: #343434 solid 2px;
       border-radius: 0.5em;
       width: 300px; }
-      .CardContainer .cardList .Card:hover {
+      .ContentArea .CardContainer .Card:hover {
         border-color: #2e86ab; }
-      .CardContainer .cardList .Card .bizImgBox {
+      .ContentArea .CardContainer .Card .bizImgBox {
         overflow: hidden;
         width: 100px;
         height: 101px;
         position: relative;
         border-radius: 0.35em 0 0 0.35em;
         background-color: #343434; }
-        .CardContainer .cardList .Card .bizImgBox .bizImg {
+        .ContentArea .CardContainer .Card .bizImgBox .bizImg {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center center; }
-        .CardContainer .cardList .Card .bizImgBox .bizNumberHolder {
+        .ContentArea .CardContainer .Card .bizImgBox .bizNumberHolder {
           position: absolute;
           left: 0.5em;
           top: 0.5em;
@@ -129,26 +126,26 @@ a {
           justify-content: center;
           align-items: center;
           background-color: #2e86ab; }
-          .CardContainer .cardList .Card .bizImgBox .bizNumberHolder .bizNumber {
+          .ContentArea .CardContainer .Card .bizImgBox .bizNumberHolder .bizNumber {
             color: white;
             font-size: x-large; }
-      .CardContainer .cardList .Card .bizDetailsBox {
+      .ContentArea .CardContainer .Card .bizDetailsBox {
         width: calc(100% - 131px);
         padding: 5px 0 5px 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between; }
-        .CardContainer .cardList .Card .bizDetailsBox .bizName {
+        .ContentArea .CardContainer .Card .bizDetailsBox .bizName {
           font-size: medium;
           color: #2e86ab;
           width: calc(100% - 10px); }
-        .CardContainer .cardList .Card .bizDetailsBox .bizAddress {
+        .ContentArea .CardContainer .Card .bizDetailsBox .bizAddress {
           font-size: x-small;
           color: #343434; }
-        .CardContainer .cardList .Card .bizDetailsBox .bizDetailsImages .stars {
+        .ContentArea .CardContainer .Card .bizDetailsBox .bizDetailsImages .stars {
           width: 120px;
           height: auto; }
-        .CardContainer .cardList .Card .bizDetailsBox .bizDetailsImages .yelpLogo {
+        .ContentArea .CardContainer .Card .bizDetailsBox .bizDetailsImages .yelpLogo {
           width: 48px;
           height: auto; }
 
@@ -183,7 +180,7 @@ a {
 
 .termChiclet,
 .locChiclet,
-.searchQuery {
+.Legend {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -200,7 +197,7 @@ a {
   border: solid #343434 1px;
   align-items: center; }
 
-.searchQuery {
+.Legend {
   background-color: white;
   width: 100%; }
 

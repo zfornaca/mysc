@@ -134,17 +134,20 @@ a {
   text-decoration: none;
 }
 
-.CardContainer {
+.ContentArea {
   margin-top: 0.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  .cardList {
+  .CardContainer {
+    margin-top: 0.5em;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+
+    // .cardList {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: center;
+    //   flex-wrap: wrap;
 
     // a:hover {
     //   .bizNumberHolder {
@@ -232,6 +235,7 @@ a {
     }
   }
 }
+// }
 
 .ticTac {
   background-color: $color-2;
@@ -272,7 +276,7 @@ a {
 
 .termChiclet,
 .locChiclet,
-.searchQuery {
+.Legend {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -291,7 +295,7 @@ a {
   align-items: center;
 }
 
-.searchQuery {
+.Legend {
   background-color: white;
   width: 100%;
 }

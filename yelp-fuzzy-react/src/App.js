@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardContainer from './CardContainer';
 import SearchBar from './SearchBar';
+import ContentArea from './ContentArea';
 import './output.css';
 
 class App extends Component {
@@ -8,7 +8,6 @@ class App extends Component {
 
   triggerSearch = (passedTerms, passedLocation) => {
     this.setState({ terms: passedTerms, location: passedLocation });
-    console.log('a search', passedTerms, passedLocation);
   };
 
   render() {
@@ -24,7 +23,7 @@ class App extends Component {
             this.triggerSearch(passedTerms, passedLocation)
           }
         />
-        <CardContainer terms={terms} location={location} />
+        <ContentArea terms={terms} location={location} />
       </div>
     );
   }
