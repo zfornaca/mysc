@@ -47,7 +47,12 @@ class ContentArea extends Component {
         {!this.state.searchInitiated ? (
           ''
         ) : this.state.loading ? (
-          'loading'
+          <div class="lds-ring">
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
         ) : !this.state.businesses.length ? (
           'No results for any of the provided search criteria.'
         ) : (
