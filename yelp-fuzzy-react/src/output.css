@@ -138,7 +138,8 @@ a {
         display: flex;
         flex-direction: column;
         justify-content: space-between; }
-        .ContentArea .CardContainer .Card .bizDetailsBox .bizName {
+        .ContentArea .CardContainer .Card .bizDetailsBox .bizName,
+        .ContentArea .CardContainer .Card .bizDetailsBox span {
           font-size: medium;
           color: #2e86ab;
           width: calc(100% - 10px); }

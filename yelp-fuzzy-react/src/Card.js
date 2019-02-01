@@ -31,7 +31,7 @@ class Card extends Component {
             <Truncate lines={2} trimWhitespace>
               {name}
             </Truncate>
-            ;<div className="bizAddress">{location}</div>
+            <div className="bizAddress">{location}</div>
             <div className="bizDetailsImages">
               <img src={`./${rating}stars.png`} alt="" className="stars" />
               <img src="./yelp_logo.png" alt="" className="yelpLogo" />

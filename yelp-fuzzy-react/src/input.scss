@@ -210,7 +210,8 @@ a {
         flex-direction: column;
         justify-content: space-between;
 
-        .bizName {
+        .bizName,
+        span {
           font-size: medium;
           color: $color-2;
           width: calc(100% - 10px);
