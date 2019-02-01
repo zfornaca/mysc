@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuidv4 from 'uuid/v4';
-import Truncate from 'react-truncate';
+// import Truncate from 'react-truncate';
 
 class Card extends Component {
   render() {
@@ -27,10 +27,10 @@ class Card extends Component {
             </div>
           </div>
           <div className="bizDetailsBox">
-            {/* <div className="bizName">{name}</div> */}
-            <Truncate lines={2} trimWhitespace>
+            <div className="bizName">{name}</div>
+            {/* <Truncate lines={2} trimWhitespace>
               {name}
-            </Truncate>
+            </Truncate> */}
             <div className="bizAddress">{location}</div>
             <div className="bizDetailsImages">
               <img src={`./${rating}stars.png`} alt="" className="stars" />
