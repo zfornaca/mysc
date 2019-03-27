@@ -181,16 +181,23 @@ a {
   .circle.circ3 {
     background-color: #ff80ff; }
 
+.stickyBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .termChiclet,
 .locChiclet,
 .Legend {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  position: sticky;
-  top: 0;
-  z-index: 10; }
+  justify-content: center; }
 
 .termChiclet,
 .locChiclet {
@@ -199,10 +206,6 @@ a {
   border-radius: 10px;
   border: solid #343434 1px;
   align-items: center; }
-
-.Legend {
-  background-color: white;
-  width: 100%; }
 
 @media (max-width: 370px) {
   .header > .fullName {

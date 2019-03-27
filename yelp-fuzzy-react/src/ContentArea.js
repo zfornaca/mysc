@@ -4,11 +4,18 @@ import initialMsg from './text';
 import CardContainer from './CardContainer';
 import Legend from './Legend';
 
-const openShiftUrl =
-  'https://app-yelp-express.1d35.starter-us-east-1.openshiftapps.com/';
+// const openShiftUrl =
+//   'https://app-yelp-express.1d35.starter-us-east-1.openshiftapps.com/';
+
+const herokuUrl = 'https://mysc-middle.herokuapp.com/';
 
 class ContentArea extends Component {
-  state = { businesses: [], searchInitiated: false, loading: false };
+  state = {
+    businesses: [],
+    searchInitiated: false,
+    loading: false,
+    matchAll: false
+  };
 
   componentWillReceiveProps(nextProps) {
     if (this.props.terms.join('') !== nextProps.terms.join('')) {
@@ -17,15 +24,10 @@ class ContentArea extends Component {
   }
 
   getDataFromBackend(terms, location) {
-    console.log(
-      `${openShiftUrl}?terms=${terms.join(',')}&location=${location}`
-    );
+    console.log(`${herokuUrl}?terms=${terms.join(',')}&location=${location}`);
     this.setState({ searchInitiated: true, loading: true });
     axios
-      .get(
-        `${openShiftUrl}?terms=${terms.join(',')}&location=${location}`
-        // `http://localhost:3001?terms=${terms.join(',')}&location=${location}`
-      )
+      .get(`${herokuUrl}?terms=${terms.join(',')}&location=${location}`)
       .then(res => {
         const businesses = Object.values(res.data);
         this.setState({ businesses, loading: false });
@@ -36,9 +38,12 @@ class ContentArea extends Component {
   render() {
     return (
       <div className="ContentArea">
-        {/* Renders legend once search submitted, else suggests a search */}
+        {/* Renders legend & toggle once search submitted, else suggests a search */}
         {this.state.searchInitiated ? (
-          <Legend terms={this.props.terms} location={this.props.location} />
+          <div className="stickyBar">
+            <Legend terms={this.props.terms} location={this.props.location} />
+            <span>toggle goes here</span>
+          </div>
         ) : (
           <div>{initialMsg}</div>
         )}
@@ -47,7 +52,7 @@ class ContentArea extends Component {
         {!this.state.searchInitiated ? (
           ''
         ) : this.state.loading ? (
-          <div class="lds-ring">
+          <div className="lds-ring">
             <div />
             <div />
             <div />
